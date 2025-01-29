@@ -6,15 +6,9 @@ For training purposes!
 
 🚀 An AI-powered web app that classifies waste as Organic or Recyclable using a Convolutional Neural Network (CNN).
 
- <p align="center">
-    <img src="images/o_ss.png" width="450">
- </p>
-
-  <p align="center">
-    <img src="images/r_ss.png" width="450">
- </p>
+![Project Title](images/title.jpg)
  
-🔗 Live Demo: I'm working on it!
+🔗 Live Demo: [Check it here!](https://wccnnrms.streamlit.app)
 
 ---
 📌 About the Project
@@ -53,12 +47,13 @@ This project was developed as a part of AICTE Internship Training (Cycle 3). The
 
 1️⃣ Clone the Repository
 
-git clone https://github.com/
-cd cnn-waste-classifier
+git clone https://github.com/RGS-AI/CNN_WC.git
+cd CNN_WC
 
 2️⃣ Install Dependencies
 
 pip install -r requirements.txt
+- **REDUCED** it from installing the full GPU version, which is heavy and unnecessary for cloud deployment.
 
 3️⃣ Run the App
 
@@ -76,27 +71,36 @@ streamlit run app.py
 ---
 📸 Project Demo
 
-Uploaded Image	Predicted Class
-	♻️ Recyclable
+ <p align="center">
+    <img src="images/o_ss.png" width="450">
+ </p>
+
+  <p align="center">
+    <img src="images/r_ss.png" width="450">
+ </p>
+
+Predicted Class
 	🌱 Organic
+	♻️ Recyclable
+	
 
 ---
 
-💡 Acknowledgments
+💡 **Acknowledgments**
 
 🙏 Special thanks to:
-	•	Techsash (Kaggle) for providing the dataset
-	•	Skills4Future for model insights
-	•	AICTE Internship Cycle 3 for the opportunity
+- Techsash (Kaggle) for providing the dataset
+- Skills4Future for model insights
+- AICTE Internship Cycle 3 for the opportunity
 
-📌 Trainer Credits: RMS 🎓
+📌 Trainer Credits: RMS 
 
 📩 Connect with Me
 
 📧 Email: 
-🔗 LinkedIn: 
+🔗 LinkedIn: www.linkedin.com/in/raghunandanms
 
 ---
 🎯 Now Go & Try the App! 🔥
 
-🔗 👉 Click here to access the live Streamlit App
+🔗 👉 [Click here to access the live Streamlit App](https://wccnnrms.streamlit.app)
