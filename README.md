@@ -6,8 +6,14 @@ For training purposes!
 
 🚀 An AI-powered web app that classifies waste as Organic or Recyclable using a Convolutional Neural Network (CNN).
 
- image
+ <p align="center">
+    <img src="images/o_ss.png" width="450">
+ </p>
 
+  <p align="center">
+    <img src="images/r_ss.png" width="450">
+ </p>
+ 
 🔗 Live Demo: I'm working on it!
 
 ---
