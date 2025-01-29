@@ -91,7 +91,7 @@ elif image_url:
         img = image.load_img(BytesIO(response.content), target_size=(224, 224))
 
         with col1:
-            st.image(img, caption="🖼️ Image from URL", use_column_width=True)
+            st.image(img, caption="🖼️ Image from URL", use_container_width=True)
 
         with col2:
             st.write("⏳ **Processing Image...**")
