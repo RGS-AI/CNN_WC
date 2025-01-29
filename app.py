@@ -53,7 +53,7 @@ col1, col2 = st.columns([1, 1])  # Two equal-width columns
 # If an image is uploaded
 if uploaded_file is not None:
     with col1:
-        st.image(uploaded_file, caption="🖼️ Uploaded Image", use_column_width=True)
+        st.image(uploaded_file, caption="🖼️ Uploaded Image", use_container_width=True)
 
     with col2:
         st.write("⏳ **Processing Image...**")
