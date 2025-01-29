@@ -37,9 +37,9 @@ This project was developed as a part of AICTE Internship Training (Cycle 3). The
 
 📂 Dataset & Model Information
 
-	•	Dataset Provider: Techsash (Kaggle)
-	•	Model Architecture & Description: Skills4future
-	•	Trained on: Organic & Recyclable Waste Images
+- Dataset Provider: Techsash (Kaggle)
+- Model Architecture & Description: Skills4future
+- Trained on: Organic & Recyclable Waste Images
  
 ---
 
@@ -47,8 +47,8 @@ This project was developed as a part of AICTE Internship Training (Cycle 3). The
 
 1️⃣ Clone the Repository
 
-git clone https://github.com/RGS-AI/CNN_WC.git
-cd CNN_WC
+- git clone https://github.com/RGS-AI/CNN_WC.git
+- cd CNN_WC
 
 2️⃣ Install Dependencies
 
