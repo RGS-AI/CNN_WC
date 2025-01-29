@@ -5,6 +5,8 @@ from tensorflow.keras.preprocessing import image
 import numpy as np
 import time  # For animation effect
 import gdown
+import requests
+from io import BytesIO
 
 # Set page configuration (This must be the first Streamlit command)
 st.set_page_config(page_title="Waste Classifier", layout="wide")
@@ -21,9 +23,6 @@ model = load_cnn_model()
 
 # Define class labels
 class_labels = {0: "Organic", 1: "Recyclable"}  # Update as per your dataset class mapping
-
-# Streamlit App Layout
-# st.set_page_config(page_title="Waste Classifier", layout="wide")
 
 # Sidebar - About Section
 with st.sidebar:
@@ -45,16 +44,17 @@ st.title("♻️ Waste Classification using CNN")
 # Upload Image Section
 uploaded_file = st.file_uploader("📤 Upload an image for classification", type=["jpg", "png", "jpeg"])
 
+# Option to classify using an Image URL
+image_url = st.text_input("🔗 Or enter an Image URL for Classification:")
+
 # Two-Column Layout
 col1, col2 = st.columns([1, 1])  # Two equal-width columns
 
 # If an image is uploaded
 if uploaded_file is not None:
-    # Display image in Column 1
     with col1:
-        st.image(uploaded_file, caption="🖼️ Uploaded Image", use_container_width=True)
+        st.image(uploaded_file, caption="🖼️ Uploaded Image", use_column_width=True)
 
-    # Process and predict in Column 2
     with col2:
         st.write("⏳ **Processing Image...**")
         time.sleep(1)  # Small delay for animation effect
@@ -83,6 +83,46 @@ if uploaded_file is not None:
         st.write("🧠 **Confidence Scores:**")
         for i, label in class_labels.items():
             st.write(f"- {label}: **{predictions[0][i] * 100:.2f}%**")
+
+# If an image URL is entered
+elif image_url:
+    try:
+        response = requests.get(image_url)
+        img = image.load_img(BytesIO(response.content), target_size=(224, 224))
+
+        with col1:
+            st.image(img, caption="🖼️ Image from URL", use_column_width=True)
+
+        with col2:
+            st.write("⏳ **Processing Image...**")
+            time.sleep(1)
+
+            # Preprocess the image
+            img_array = image.img_to_array(img)
+            img_array = np.expand_dims(img_array, axis=0)
+            img_array = img_array / 255.0
+
+            # Make a prediction
+            predictions = model.predict(img_array)
+            predicted_class = np.argmax(predictions, axis=1)[0]
+            predicted_label = class_labels[predicted_class]
+
+            # Show prediction result
+            st.success(f"✅ **Prediction: {predicted_label} Waste**")
+
+            # Animated Icon
+            if predicted_label == "Organic":
+                st.markdown("🌱 **This waste is Organic!**")
+            else:
+                st.markdown("🔄 **This waste is Recyclable!**")
+
+            # Optional: Show Confidence Scores
+            st.write("🧠 **Confidence Scores:**")
+            for i, label in class_labels.items():
+                st.write(f"- {label}: **{predictions[0][i] * 100:.2f}%**")
+
+    except Exception as e:
+        st.error(f"❌ Error loading image: {e}")
 
 # Bottom Credits
 st.markdown("---")
