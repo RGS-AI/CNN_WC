@@ -9,7 +9,7 @@ import requests
 from io import BytesIO
 
 # Set page configuration (This must be the first Streamlit command)
-st.set_page_config(page_title="Waste Classifier", layout="wide")
+st.set_page_config(page_title="Waste Classifier using CNN", layout="wide")
 
 model_url = "https://drive.google.com/uc?id=1MEzf68u2JjO4atq2q4EWJNZ22Wf-657u"
 
@@ -127,4 +127,4 @@ elif image_url:
 # Bottom Credits
 st.markdown("---")
 st.markdown(" **Trainer Credits: RMS** ")
-st.markdown(" **Developed with ❤️ for AICTE Internship Cycle 3**")
+st.markdown(" **Developed with ❤️ for AICTE Internship Cycle 3 from RMS**")
